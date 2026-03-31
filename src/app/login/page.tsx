@@ -14,7 +14,7 @@ export default function LoginPage() {
             style={{ display: "block", width: "100%", padding: 10, marginTop: 4, borderRadius: 6, border: "1px solid #333", background: "#1a1a1a", color: "#eee" }} />
         </label>
         <button type="submit"
-          style={{ padding: "10px 20px", background: "#2563eb", color: "white", border: "none", borderRadius: 8, cursor: "pointer", marginTop: 8 }}>
+          style={{ padding: "10px 20px", background: "#2563eb", color: "#2563eb", border: "none", borderRadius: 8, cursor: "pointer", marginTop: 8 }}>
           Sign In
         </button>
       </form>

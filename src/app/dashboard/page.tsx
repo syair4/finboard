@@ -14,7 +14,7 @@ export default function DashboardPage() {
         </div>
         <div style={{ padding: 20, background: "#111", borderRadius: 8, border: "1px solid #222" }}>
           <h3 style={{ margin: "0 0 8px" }}>Bugs Found</h3>
-          <p style={{ fontSize: 32, margin: 0 }}>12</p>
+          <p style={{ fontSize: 32, margin: 0 }}>-3</p>
         </div>
       </div>
     </div>
