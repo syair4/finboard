@@ -1,16 +1,26 @@
-export const metadata = { title: "Test App", description: "ClawQA test application" };
+import type { Metadata } from "next";
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "Test App",
+  description: "A simple test application for ClawQA automated testing. Features login, dashboard, and about pages.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#0a0a0a", color: "#ededed" }}>
-        <nav style={{ display: "flex", gap: 16, padding: "16px 24px", background: "#111", borderBottom: "1px solid #222" }}>
-          <a href="/" style={{ color: "#60a5fa", textDecoration: "none" }}>Home</a>
-          <a href="/about" style={{ color: "#60a5fa", textDecoration: "none" }}>About</a>
-          <a href="/dashboard" style={{ color: "#60a5fa", textDecoration: "none" }}>Dashboard</a>
-          <a href="/login" style={{ color: "#60a5fa", textDecoration: "none", marginLeft: "auto" }}>Login</a>
+      <body>
+        <nav style={{ display: "flex", gap: 16, padding: "16px 24px", borderBottom: "1px solid #222", background: "#0a0a0a" }}>
+          <a href="/" style={{ color: "#eee", textDecoration: "none" }}>Home</a>
+          <a href="/about" style={{ color: "#eee", textDecoration: "none" }}>About</a>
+          <a href="/dashboard" style={{ color: "#eee", textDecoration: "none" }}>Dashboard</a>
+          <a href="/login" style={{ color: "#eee", textDecoration: "none" }}>Login</a>
         </nav>
-        <main style={{ padding: 24, maxWidth: 800, margin: "0 auto" }}>{children}</main>
+        <main style={{ padding: 24 }}>{children}</main>
       </body>
     </html>
   );
