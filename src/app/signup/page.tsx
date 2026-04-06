@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { login } from "@/lib/auth";
+import { signup } from "@/lib/auth";
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -18,7 +20,7 @@ export default function LoginPage() {
     setLoading(true);
 
     setTimeout(() => {
-      if (!email || !password) {
+      if (!name || !email || !password || !confirm) {
         setError("Please fill in all fields");
         setLoading(false);
         return;
@@ -28,8 +30,13 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
+      if (password !== confirm) {
+        setError("Passwords do not match");
+        setLoading(false);
+        return;
+      }
 
-      login(email, password);
+      signup(email, password, name);
       window.dispatchEvent(new Event("auth-change"));
       router.push("/");
     }, 800);
@@ -41,8 +48,8 @@ export default function LoginPage() {
         <div className="bg-[#111827] border border-gray-800 rounded-2xl p-8">
           <div className="text-center mb-8">
             <span className="text-4xl">📈</span>
-            <h1 className="text-2xl font-bold mt-3 text-white">Welcome back</h1>
-            <p className="text-gray-500 mt-1">Sign in to your FinBoard account</p>
+            <h1 className="text-2xl font-bold mt-3 text-white">Create account</h1>
+            <p className="text-gray-500 mt-1">Start tracking your investments</p>
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -51,6 +58,19 @@ export default function LoginPage() {
                 {error}
               </div>
             )}
+
+            <div>
+              <label htmlFor="name" className="block text-sm text-gray-400 mb-1.5">Full Name</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="John Doe"
+                required
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
 
             <div>
               <label htmlFor="email" className="block text-sm text-gray-400 mb-1.5">Email</label>
@@ -78,18 +98,31 @@ export default function LoginPage() {
               />
             </div>
 
+            <div>
+              <label htmlFor="confirm" className="block text-sm text-gray-400 mb-1.5">Confirm Password</label>
+              <input
+                id="confirm"
+                type="password"
+                value={confirm}
+                onChange={(e) => setConfirm(e.target.value)}
+                placeholder="••••••••"
+                required
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
+
             <button
               type="submit"
               disabled={loading}
               className="w-full py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors mt-2"
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? "Creating account..." : "Sign Up"}
             </button>
           </form>
 
           <p className="text-center text-sm text-gray-500 mt-6">
-            Don&apos;t have an account?{" "}
-            <Link href="/signup" className="text-blue-400 hover:text-blue-300">Create one</Link>
+            Already have an account?{" "}
+            <Link href="/login" className="text-blue-400 hover:text-blue-300">Sign in</Link>
           </p>
         </div>
       </div>

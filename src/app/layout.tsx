@@ -1,26 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Sidebar } from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Test App",
-  description: "A simple test application for ClawQA automated testing. Features login, dashboard, and about pages.",
+  title: "FinBoard — Stocks & Crypto Dashboard",
+  description: "Real-time stock and cryptocurrency dashboard with portfolio tracking and investment calculator.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <nav style={{ display: "flex", gap: 16, padding: "16px 24px", borderBottom: "1px solid #222", background: "#0a0a0a" }}>
-          <a href="/" style={{ color: "#eee", textDecoration: "none" }}>Home</a>
-          <a href="/about" style={{ color: "#eee", textDecoration: "none" }}>About</a>
-          <a href="/dashboard" style={{ color: "#eee", textDecoration: "none" }}>Dashboard</a>
-          <a href="/login" style={{ color: "#eee", textDecoration: "none" }}>Login</a>
-        </nav>
-        <main style={{ padding: 24 }}>{children}</main>
+      <body className="flex min-h-screen bg-[#0b0f1a] text-gray-100">
+        <Sidebar />
+        <main className="flex-1 ml-16 lg:ml-56">
+          {children}
+        </main>
       </body>
     </html>
   );
