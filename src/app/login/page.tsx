@@ -1,3 +1,5 @@
+"use client";
+
 export default function LoginPage() {
   return (
     <div style={{ maxWidth: 400, margin: "40px auto" }}>
