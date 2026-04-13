@@ -81,7 +81,7 @@ export function Sidebar() {
             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
           >
             <span className="text-lg">🔑</span>
-            <span className="hidden lg:block">Sign In</span>
+            <span className="hidden lg:block">Log In</span>
           </Link>
         )}
       </div>
