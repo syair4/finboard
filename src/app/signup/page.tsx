@@ -32,11 +32,9 @@ export default function SignupPage() {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      signup(email, password, name);
-      window.dispatchEvent(new Event("auth-change"));
-      router.push("/");
-    }, 800);
+    signup(email, password, name);
+    window.dispatchEvent(new Event("auth-change"));
+    router.push("/");
   };
 
   return (
