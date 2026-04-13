@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="flex min-h-screen bg-[#0b0f1a] text-gray-100">
         <Sidebar />
-        <main className="flex-1 ml-16 lg:ml-56">
+        <main id="main-content" className="flex-1 ml-16 lg:ml-56 relative z-0">
           {children}
         </main>
       </body>

@@ -45,9 +45,9 @@ export default function LoginPage() {
             <p className="text-gray-500 mt-1">Sign in to your FinBoard account</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} method="post" className="flex flex-col gap-4">
             {error && (
-              <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">
+              <div role="alert" className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">
                 {error}
               </div>
             )}
@@ -56,6 +56,7 @@ export default function LoginPage() {
               <label htmlFor="email" className="block text-sm text-gray-400 mb-1.5">Email</label>
               <input
                 id="email"
+                name="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -69,6 +70,7 @@ export default function LoginPage() {
               <label htmlFor="password" className="block text-sm text-gray-400 mb-1.5">Password</label>
               <input
                 id="password"
+                name="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
