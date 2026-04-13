@@ -70,7 +70,7 @@ export default function PortfolioPage() {
             href="/login"
             className="inline-block px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors"
           >
-            Sign In
+            Sign In to view portfolio
           </Link>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function PortfolioPage() {
             href="/login"
             className="inline-block px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors"
           >
-            Sign In
+            Sign In to view portfolio
           </Link>
         </div>
       </div>
