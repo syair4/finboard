@@ -247,6 +247,7 @@ function TaxCalculator() {
         <div className="bg-[#111827] border border-gray-800 rounded-2xl p-6">
           <h2 className="text-lg font-bold mb-6">Tax Breakdown</h2>
           <div className="flex flex-col gap-4">
+            <h3 className="text-sm font-semibold text-gray-400 mb-3">Estimated Tax</h3>
             <ResultRow label="Income Tax" value={`$${result.incomeTax.toLocaleString(undefined, { maximumFractionDigits: 2 })}`} />
             <ResultRow label="Capital Gains Tax" value={`$${result.capitalGainsTax.toLocaleString(undefined, { maximumFractionDigits: 2 })}`} />
             <div className="border-t border-gray-800 pt-4">
