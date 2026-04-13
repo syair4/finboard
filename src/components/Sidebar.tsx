@@ -28,7 +28,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-16 lg:w-56 bg-[#111827] border-r border-gray-800 flex flex-col z-30">
+    <aside className="fixed left-0 top-0 h-full w-16 lg:w-56 bg-[#111827] border-r border-gray-800 flex flex-col z-30 pointer-events-auto">
       <div className="p-4 border-b border-gray-800">
         <Link href="/" className="flex items-center gap-3">
           <span className="text-2xl">📈</span>
