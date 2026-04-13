@@ -26,11 +26,9 @@ export default function LoginPage() {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      login(email, password);
-      window.dispatchEvent(new Event("auth-change"));
-      router.push("/");
-    }, 800);
+    login(email, password);
+    window.dispatchEvent(new Event("auth-change"));
+    router.push("/");
   };
 
   return (
