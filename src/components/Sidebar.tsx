@@ -28,7 +28,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-16 lg:w-56 bg-[#111827] border-r border-gray-800 flex flex-col z-50">
+    <aside className="fixed left-0 top-0 h-full w-16 lg:w-56 bg-[#111827] border-r border-gray-800 flex flex-col z-30">
       <div className="p-4 border-b border-gray-800">
         <Link href="/" className="flex items-center gap-3">
           <span className="text-2xl">📈</span>
@@ -38,7 +38,7 @@ export function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex-1 p-2 flex flex-col gap-1 mt-2">
+      <nav className="flex-1 p-2 flex flex-col gap-1 mt-2" aria-label="Main navigation">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
