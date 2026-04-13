@@ -15,20 +15,18 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
     setLoading(true);
-
     setTimeout(() => {
-      if (!email || !password) {
-        setError("Please fill in all fields");
-        setLoading(false);
-        return;
-      }
-      if (password.length < 6) {
-        setError("Password must be at least 6 characters");
-        setLoading(false);
-        return;
-      }
-
       login(email, password);
       window.dispatchEvent(new Event("auth-change"));
       router.push("/");
@@ -45,7 +43,7 @@ export default function LoginPage() {
             <p className="text-gray-500 mt-1">Sign in to your FinBoard account</p>
           </div>
 
-          <form onSubmit={handleSubmit} method="post" className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} method="post" className="flex flex-col gap-4" noValidate>
             {error && (
               <div role="alert" className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-3">
                 {error}
@@ -61,7 +59,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                required
+                autoComplete="email"
                 className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
@@ -75,7 +73,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                required
+                autoComplete="current-password"
                 className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
