@@ -15,20 +15,21 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    // Validate immediately — no delay for validation errors
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
     setLoading(true);
 
+    // Only the actual login call has a delay (simulating server roundtrip)
     setTimeout(() => {
-      if (!email || !password) {
-        setError("Please fill in all fields");
-        setLoading(false);
-        return;
-      }
-      if (password.length < 6) {
-        setError("Password must be at least 6 characters");
-        setLoading(false);
-        return;
-      }
-
       login(email, password);
       window.dispatchEvent(new Event("auth-change"));
       router.push("/");
