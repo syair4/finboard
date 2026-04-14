@@ -19,7 +19,7 @@ export default function CalculatorPage() {
           <button
             key={m}
             onClick={() => setMode(m)}
-            className={`px-4 py-2 text-sm rounded-md transition-colors capitalize ${
+            className={`px-4 py-2 text-sm rounded-md capitalize ${
               mode === m ? "bg-blue-500/15 text-blue-400 font-medium" : "text-gray-400 hover:text-gray-200"
             }`}
           >
@@ -73,7 +73,7 @@ function CompoundCalculator() {
           <InputField label="Monthly Contribution ($)" value={monthly} onChange={setMonthly} id="monthly" />
           <button
             onClick={calculate}
-            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors"
+            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg"
           >
             Calculate
           </button>
@@ -123,7 +123,7 @@ function ROICalculator() {
           <InputField label="Current Value ($)" value={current} onChange={setCurrent} id="current" />
           <button
             onClick={calculate}
-            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors"
+            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg"
           >
             Calculate ROI
           </button>
@@ -215,7 +215,7 @@ function TaxCalculator() {
             <div className="flex gap-2">
               <button
                 onClick={() => setHoldingPeriod("short")}
-                className={`flex-1 py-2.5 text-sm rounded-lg border transition-colors ${
+                className={`flex-1 py-2.5 text-sm rounded-lg border ${
                   holdingPeriod === "short"
                     ? "border-blue-500 bg-blue-500/10 text-blue-400"
                     : "border-gray-700 text-gray-400 hover:border-gray-600"
@@ -225,7 +225,7 @@ function TaxCalculator() {
               </button>
               <button
                 onClick={() => setHoldingPeriod("long")}
-                className={`flex-1 py-2.5 text-sm rounded-lg border transition-colors ${
+                className={`flex-1 py-2.5 text-sm rounded-lg border ${
                   holdingPeriod === "long"
                     ? "border-blue-500 bg-blue-500/10 text-blue-400"
                     : "border-gray-700 text-gray-400 hover:border-gray-600"
@@ -237,7 +237,7 @@ function TaxCalculator() {
           </div>
           <button
             onClick={calculate}
-            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors"
+            className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg"
           >
             Estimate Tax
           </button>
@@ -270,7 +270,7 @@ function InputField({ label, value, onChange, id }: { label: string; value: stri
         type="number"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+        className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500"
       />
     </div>
   );
