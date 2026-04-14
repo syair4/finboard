@@ -108,7 +108,7 @@ export default function DashboardPage() {
       <div className="flex gap-1 bg-[#111827] border border-gray-800 rounded-lg p-1 w-fit mb-6">
         <button
           onClick={() => setTab("stocks")}
-          className={`px-4 py-2 text-sm rounded-md transition-colors ${
+          className={`px-4 py-2 text-sm rounded-md ${
             tab === "stocks" ? "bg-blue-500/15 text-blue-400 font-medium" : "text-gray-400 hover:text-gray-200"
           }`}
         >
@@ -116,7 +116,7 @@ export default function DashboardPage() {
         </button>
         <button
           onClick={() => setTab("crypto")}
-          className={`px-4 py-2 text-sm rounded-md transition-colors ${
+          className={`px-4 py-2 text-sm rounded-md ${
             tab === "crypto" ? "bg-blue-500/15 text-blue-400 font-medium" : "text-gray-400 hover:text-gray-200"
           }`}
         >
