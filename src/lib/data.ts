@@ -21,11 +21,22 @@ export interface Crypto {
   sparkline: number[];
 }
 
+// Seeded PRNG for deterministic sparkline data (avoids SSR/client hydration mismatch)
+function seededRandom(seed: number): () => number {
+  let s = seed;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
+let sparklineSeed = 42;
 function generateSparkline(base: number, volatility: number): number[] {
+  const rng = seededRandom(sparklineSeed++);
   const points: number[] = [];
   let val = base;
   for (let i = 0; i < 20; i++) {
-    val += (Math.random() - 0.48) * volatility;
+    val += (rng() - 0.48) * volatility;
     points.push(Math.round(val * 100) / 100);
   }
   return points;
