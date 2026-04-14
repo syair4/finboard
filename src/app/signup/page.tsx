@@ -17,25 +17,25 @@ export default function SignupPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    // Validate immediately — no delay for validation errors
+    if (!name || !email || !password || !confirm) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+    if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    }
+
     setLoading(true);
 
+    // Only the actual signup has a delay (simulating server roundtrip)
     setTimeout(() => {
-      if (!name || !email || !password || !confirm) {
-        setError("Please fill in all fields");
-        setLoading(false);
-        return;
-      }
-      if (password.length < 6) {
-        setError("Password must be at least 6 characters");
-        setLoading(false);
-        return;
-      }
-      if (password !== confirm) {
-        setError("Passwords do not match");
-        setLoading(false);
-        return;
-      }
-
       signup(email, password, name);
       window.dispatchEvent(new Event("auth-change"));
       router.push("/");
@@ -90,6 +90,7 @@ export default function SignupPage() {
               <input
                 id="password"
                 type="password"
+                aria-label="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
@@ -103,6 +104,7 @@ export default function SignupPage() {
               <input
                 id="confirm"
                 type="password"
+                aria-label="Confirm Password"
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 placeholder="••••••••"
