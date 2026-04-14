@@ -68,7 +68,7 @@ export default function SignupPage() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="John Doe"
                 required
-                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -81,7 +81,7 @@ export default function SignupPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -94,7 +94,7 @@ export default function SignupPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -107,14 +107,14 @@ export default function SignupPage() {
                 onChange={(e) => setConfirm(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-2.5 bg-[#0b0f1a] border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors mt-2"
+              className="w-full py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium rounded-lg mt-2"
             >
               {loading ? "Creating account..." : "Sign Up"}
             </button>

@@ -45,7 +45,7 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm ${
                 isActive
                   ? "bg-blue-500/15 text-blue-400"
                   : "text-gray-400 hover:text-gray-200 hover:bg-white/5"
@@ -69,7 +69,7 @@ export function Sidebar() {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-colors w-full"
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-red-400 hover:bg-red-500/10 w-full"
             >
               <span className="text-lg">🚪</span>
               <span className="hidden lg:block">Logout</span>
@@ -78,7 +78,8 @@ export function Sidebar() {
         ) : (
           <Link
             href="/login"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
+            aria-label="Sign in to FinBoard"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-blue-400 hover:bg-blue-500/10"
           >
             <span className="text-lg">🔑</span>
             <span className="hidden lg:block">Sign In</span>
